@@ -10,13 +10,13 @@ const PageHead: React.FC<{
   isHomePage?: boolean;
 }> = ({ page, title, description, image, isHomePage }) => {
   const { asPath }: NextRouter = useRouter();
-  const url: string = "https://riv.systems" + asPath;
+  const url: string = "https://items.riv.systems" + asPath;
   const defaultImage: string = "https://i.imgur.com/dk7mgAz.png"; // riv.systems logo
 
   return (
     <>
       <Head>
-        <title>{isHomePage ? title : `${title} | RIV.SYSTEMS`}</title>
+        <title>{isHomePage ? title : `${title} | ITEMS.RIV.SYSTEMS`}</title>
         <meta
           name="description"
           key={`description-${page}`}
@@ -26,12 +26,12 @@ const PageHead: React.FC<{
         <meta
           property="og:site_name"
           key={`og-site-name-${page}`}
-          content="RIV.SYSTEMS"
+          content="ITEMS.RIV.SYSTEMS"
         />
         <meta
           property="og:title"
           key={`og-title-${page}`}
-          content={`${title} | RIV.SYSTEMS`}
+          content={`${title} | ITEMS.RIV.SYSTEMS`}
         />
         <meta
           property="og:description"

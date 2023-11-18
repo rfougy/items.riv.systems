@@ -1,18 +1,6 @@
-<img width="838" alt="RIV.SYSTEMS logo" src="https://github.com/rfougy/riv.systems/assets/77861258/55a2a9bb-53e4-47b0-8b6b-78e97ee3b98b">
- 
 ## Overview
 
-RIV.SYSTEMS is a Portfolio / Blog Hybrid Progressive Web App, built with scalability and minimal dependencies in mind. The project's only expense is for the domain, with frontend deployment on Vercel and content hosted directly in the repository.
-
-### Features
-
-- Display Dots Animation
-- Search
-- Filtering, Pagination, Views
-- Music Player
-- Text Highlighter
-- Progressive Web App Capabilities
-- Dynamic Open Graph and Meta Tags
+ITEMS.RIV.SYSTEMS is a Progressive Web App for showcasing the items I've ever come to acquire.
 
 ### Tech Stack
 
