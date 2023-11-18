@@ -1,13 +1,11 @@
 import { useSearchContext } from "../../context/SearchContext";
 
 import DefaultLayout from "./layouts/default/DefaultLayout";
-import LinkInBioLayout from "./layouts/link-in-bio/LinkInBioLayout";
 import SearchLayout from "./layouts/search/SearchLayout";
 
 const Navbar: React.FC<{
-  isLinkInBioPage?: boolean;
   toggleTheme: () => void;
-}> = ({ isLinkInBioPage, toggleTheme }) => {
+}> = ({ toggleTheme }) => {
   const { searchActivated, setSearchActivated, setSearchResults } =
     useSearchContext();
 
@@ -18,8 +16,6 @@ const Navbar: React.FC<{
         setSearchResults={setSearchResults}
       />
     );
-
-  if (isLinkInBioPage) return <LinkInBioLayout toggleTheme={toggleTheme} />;
 
   return (
     <DefaultLayout
