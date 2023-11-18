@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           </Description>
           <Margin>
             <DisplayDotsAnime
-              text={"RIV.SYSTEMS"}
+              text={"ITEMS.RIV.SYSTEMS"}
               includeRestartButton={true}
             />
           </Margin>
@@ -43,9 +43,9 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       metaTagInputs: {
         page: "home",
-        title: "RIV.SYSTEMS: Fashion, Web Development, Life Experiences",
+        title: "ITEMS.RIV.SYSTEMS: Clothing, Film, Misc. Objects",
         description:
-          "Welcome to RIV.SYSTEMS, a personal portfolio and blog website featuring content on fashion, web development, design and more.",
+          "Welcome to ITEMS.RIV.SYSTEMS, a personal website featuring personal possessions from clothing to film and more.",
         isHomePage: true,
       },
       isDisplayDotsPage: true,
