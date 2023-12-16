@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 export const ViewportWrapper = styled.div`
+  cursor: crosshair;
+
   position: fixed;
   z-index: 10;
 
@@ -32,6 +34,19 @@ export const ModalContainer = styled.div`
   max-width: 1000px;
 
   margin: auto;
+`;
+
+export const NavButton = styled.button`
+  all: unset;
+  display: flex;
+  flex-wrap: no-wrap;
+  margin: 0 0.35rem;
+  padding: 0.4rem 0.7rem;
+  opacity: ${(props: any) => (props.disabled ? "0.5" : "1")};
+
+  &:hover {
+    cursor: cell;
+  }
 `;
 
 export const ImageBox = styled.div`

@@ -1,14 +1,15 @@
 import Image from "next/image";
-import { useRef } from "react";
 import { useModalContext } from "../../context/ModalContext";
 import {
   Content,
   ImageBox,
   ModalContainer,
+  NavButton,
   Text,
   ViewportWrapper,
 } from "./Modal.styled";
-import useOutsideClick from "../../hooks/useOutsideClick";
+import ArrowIcon from "../icons/ArrowIcon";
+import { darkTheme } from "../../styles/theme";
 
 const Modal: React.FC = () => {
   const {
@@ -19,23 +20,15 @@ const Modal: React.FC = () => {
     handlePrevSlide,
   } = useModalContext();
 
-  const contentRef = useRef(null);
-  const nextButtonRef = useRef(null);
-  const prevButtonRef = useRef(null);
-
-  useOutsideClick(contentRef, () => handleModalClose());
-  useOutsideClick(nextButtonRef, () => handleModalClose());
-  useOutsideClick(prevButtonRef, () => handleModalClose());
-
   return (
     openModal && (
       <ViewportWrapper>
         <button onClick={() => handleModalClose()}>CLOSE</button>
         <ModalContainer>
-          <button ref={prevButtonRef} onClick={() => handlePrevSlide()}>
-            PREV
-          </button>
-          <Content ref={contentRef}>
+          <NavButton onClick={() => handlePrevSlide()}>
+            <ArrowIcon left color={darkTheme.primary} />
+          </NavButton>
+          <Content>
             <ImageBox>
               <Image
                 src={currSlide.frontmatter.coverImage}
@@ -51,9 +44,9 @@ const Modal: React.FC = () => {
             </ImageBox>
             <Text>{currSlide.frontmatter.excerpt}</Text>
           </Content>
-          <button ref={nextButtonRef} onClick={() => handleNextSlide()}>
-            NEXT
-          </button>
+          <NavButton onClick={() => handleNextSlide()}>
+            <ArrowIcon right color={darkTheme.primary} />
+          </NavButton>
         </ModalContainer>
         <div />
       </ViewportWrapper>
