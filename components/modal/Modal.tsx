@@ -1,6 +1,12 @@
 import Image from "next/image";
 import { useModalContext } from "../../context/ModalContext";
-import { ModalContainer, ViewportWrapper } from "./Modal.styled";
+import {
+  Content,
+  ImageBox,
+  ModalContainer,
+  Text,
+  ViewportWrapper,
+} from "./Modal.styled";
 
 const Modal: React.FC = () => {
   const {
@@ -17,18 +23,22 @@ const Modal: React.FC = () => {
         <button onClick={() => handleModalClose()}>CLOSE</button>
         <ModalContainer>
           <button onClick={() => handlePrevSlide()}>PREV</button>
-          <Image
-            src={currSlide.frontmatter.coverImage}
-            alt={`Cover image for post titled '${currSlide.frontmatter.title}'`}
-            width={650}
-            height={100}
-            placeholder="blur"
-            blurDataURL={currSlide.frontmatter.placeholderImage}
-            style={{
-              maxWidth: "100%",
-              objectFit: "cover",
-            }}
-          />
+          <Content>
+            <ImageBox>
+              <Image
+                src={currSlide.frontmatter.coverImage}
+                alt={`Cover image for post titled '${currSlide.frontmatter.title}'`}
+                layout="fill"
+                placeholder="blur"
+                blurDataURL={currSlide.frontmatter.placeholderImage}
+                style={{
+                  maxWidth: "100%",
+                  objectFit: "contain",
+                }}
+              />
+            </ImageBox>
+            <Text>{currSlide.frontmatter.excerpt}</Text>
+          </Content>
           <button onClick={() => handleNextSlide()}>NEXT</button>
         </ModalContainer>
         <div />

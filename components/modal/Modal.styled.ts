@@ -21,9 +21,39 @@ export const ViewportWrapper = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 2rem;
 
+  height: 100%;
+  width: 100%;
+  max-width: 1000px;
+
   margin: auto;
+`;
+
+export const ImageBox = styled.div`
+  position: relative;
+
+  height: 100%;
+  max-height: fit-content;
+  width: 90%;
+`;
+
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  width: 100%;
+  height: 100%;
+`;
+
+export const Text = styled.caption`
+  color: #ffffff;
+  font-size: 1rem;
 `;
