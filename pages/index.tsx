@@ -26,7 +26,6 @@ export const getStaticProps: GetStaticProps = async () => {
           "Welcome to THINGS.RIV.SYSTEMS, a personal website featuring personal possessions from clothing to film and more.",
         isHomePage: true,
       },
-      isDisplayDotsPage: true,
     },
   };
 };
