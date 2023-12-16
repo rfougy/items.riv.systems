@@ -13,6 +13,7 @@ import { darkTheme } from "../../styles/theme";
 import IconButton from "../shared/icon-button/IconButton";
 
 import closeIcon from "../../public/assets/icons/close-icon.svg";
+import Button from "../shared/button/Button";
 
 const Modal: React.FC = () => {
   const {
@@ -54,6 +55,9 @@ const Modal: React.FC = () => {
               />
             </ImageBox>
             <Text>{currSlide.frontmatter.title}</Text>
+            <Button forModal href={currSlide.path}>
+              Learn More
+            </Button>
           </Content>
           <NavButton onClick={() => handleNextSlide()}>
             <ArrowIcon forModal right color={darkTheme.primary} />
