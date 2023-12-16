@@ -26,7 +26,7 @@ const Modal: React.FC = () => {
         <button onClick={() => handleModalClose()}>CLOSE</button>
         <ModalContainer>
           <NavButton onClick={() => handlePrevSlide()}>
-            <ArrowIcon left color={darkTheme.primary} />
+            <ArrowIcon forModal left color={darkTheme.primary} />
           </NavButton>
           <Content>
             <ImageBox>
@@ -45,7 +45,7 @@ const Modal: React.FC = () => {
             <Text>{currSlide.frontmatter.excerpt}</Text>
           </Content>
           <NavButton onClick={() => handleNextSlide()}>
-            <ArrowIcon right color={darkTheme.primary} />
+            <ArrowIcon forModal right color={darkTheme.primary} />
           </NavButton>
         </ModalContainer>
         <div />
