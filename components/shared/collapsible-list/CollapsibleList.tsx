@@ -1,5 +1,5 @@
 import { ReactElement, useEffect, useState } from "react";
-import { Box, Button, Divider } from "./CollapsibleList.styled";
+import { Box, Divider } from "./CollapsibleList.styled";
 import useViewportWidthEventListener from "../../../hooks/useViewportWidthListener";
 import { breakpoints } from "../../../styles/theme";
 import Toggler from "./toggler/Toggler";
