@@ -15,7 +15,6 @@ const Footer: React.FC = () => {
 
   return (
     <Foot>
-      <SocialsIcon social={sourceCodeData} />
       <SocialsList socials={socialsList} />
     </Foot>
   );

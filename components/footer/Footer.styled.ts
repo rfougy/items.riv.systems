@@ -5,7 +5,7 @@ export const Footer = styled.footer`
   display: flex;
   height: 1.375rem
   width: 100%;
-  justify-content: space-between;
+  justify-content: flex-end;
 
   @media (max-width: ${breakpoints.xxs}) {
     justify-content: center;
