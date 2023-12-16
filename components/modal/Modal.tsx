@@ -10,6 +10,9 @@ import {
 } from "./Modal.styled";
 import ArrowIcon from "../icons/ArrowIcon";
 import { darkTheme } from "../../styles/theme";
+import IconButton from "../shared/icon-button/IconButton";
+
+import closeIcon from "../../public/assets/icons/close-icon.svg";
 
 const Modal: React.FC = () => {
   const {
@@ -23,7 +26,15 @@ const Modal: React.FC = () => {
   return (
     openModal && (
       <ViewportWrapper>
-        <button onClick={() => handleModalClose()}>CLOSE</button>
+        <IconButton
+          forModal
+          src={closeIcon}
+          alt="close button"
+          ariaLabel="close button"
+          height="2.25rem"
+          width="2.25rem"
+          onClick={() => handleModalClose()}
+        />
         <ModalContainer>
           <NavButton onClick={() => handlePrevSlide()}>
             <ArrowIcon forModal left color={darkTheme.primary} />
