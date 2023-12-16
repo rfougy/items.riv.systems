@@ -7,9 +7,9 @@ import { Grid, GridItem } from "./GridView.styled";
 const GridView: React.FC<{
   content: any;
 }> = ({ content }) => {
-  const { setContent, handleModalOpen } = useModalContext();
+  const { setSlides, handleModalOpen } = useModalContext();
 
-  useEffect(() => setContent(content), [content, setContent]);
+  useEffect(() => setSlides(content), [content, setSlides]);
 
   return content ? (
     <Grid>
