@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakpoints } from "../../styles/theme";
 
 export const ViewportWrapper = styled.div`
   cursor: crosshair;
@@ -20,6 +21,10 @@ export const ViewportWrapper = styled.div`
 
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(7.5px);
+
+  @media (max-width: ${breakpoints.xs}) {
+    padding: 0 0 1rem 0;
+  
 `;
 
 export const ModalContainer = styled.div`
@@ -62,8 +67,6 @@ export const Content = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-
-  border: solid 0.1rem #ffffff;
 
   width: 100%;
   height: 100%;
