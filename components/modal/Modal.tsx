@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useRef } from "react";
 import { useModalContext } from "../../context/ModalContext";
 import {
   Content,
@@ -7,6 +8,7 @@ import {
   Text,
   ViewportWrapper,
 } from "./Modal.styled";
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 const Modal: React.FC = () => {
   const {
@@ -17,13 +19,23 @@ const Modal: React.FC = () => {
     handlePrevSlide,
   } = useModalContext();
 
+  const contentRef = useRef(null);
+  const nextButtonRef = useRef(null);
+  const prevButtonRef = useRef(null);
+
+  useOutsideClick(contentRef, () => handleModalClose());
+  useOutsideClick(nextButtonRef, () => handleModalClose());
+  useOutsideClick(prevButtonRef, () => handleModalClose());
+
   return (
     openModal && (
       <ViewportWrapper>
         <button onClick={() => handleModalClose()}>CLOSE</button>
         <ModalContainer>
-          <button onClick={() => handlePrevSlide()}>PREV</button>
-          <Content>
+          <button ref={prevButtonRef} onClick={() => handlePrevSlide()}>
+            PREV
+          </button>
+          <Content ref={contentRef}>
             <ImageBox>
               <Image
                 src={currSlide.frontmatter.coverImage}
@@ -39,7 +51,9 @@ const Modal: React.FC = () => {
             </ImageBox>
             <Text>{currSlide.frontmatter.excerpt}</Text>
           </Content>
-          <button onClick={() => handleNextSlide()}>NEXT</button>
+          <button ref={nextButtonRef} onClick={() => handleNextSlide()}>
+            NEXT
+          </button>
         </ModalContainer>
         <div />
       </ViewportWrapper>
