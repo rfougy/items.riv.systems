@@ -1,1 +1,3 @@
-export const postViewOptions = ["grid", "default", "column"];
+import { postView } from "../types/postView";
+
+export const postViewOptions: postView[] = ["grid"];
