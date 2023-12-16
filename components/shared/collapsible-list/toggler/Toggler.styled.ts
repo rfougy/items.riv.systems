@@ -15,18 +15,18 @@ export const Title = styled.button`
 
   font-size: 0.75rem;
   font-weight: 500;
+  color: ${(props: any) => props.theme.primary};
 
   width: 100%;
-
   margin: 0;
 `;
 
 export const Button = styled.button`
   all: unset;
 
-  color: ${(props: any) => props.theme.primary};
   font-size: 0.75rem;
   text-decoration: underline;
+  color: ${(props: any) => props.theme.primary};
 `;
 
 export const Inline = styled.div`
