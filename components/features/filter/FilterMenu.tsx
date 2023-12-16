@@ -17,6 +17,7 @@ import {
   SectionFilterOption,
   ToggleCheckbox,
 } from "./FilterMenu.styled";
+import CollapsibleList from "../../shared/collapsible-list/CollapsibleList";
 
 const FilterMenu: React.FC<{
   categories: ICategoryObj[];
@@ -93,120 +94,127 @@ const FilterMenu: React.FC<{
 
   return (
     <Box>
-      {nestedFilteringOptions ? (
-        // Filter for Sections and Categories
-        <Form>
-          {nestedFilteringOptions.map(
-            (nestedCategories: ICategoryObj[], index: number) => {
-              const section: string = sectionsArr[index];
-              const allCategoriesForSectionAreSelected: boolean =
-                validateAllCategoriesForSectionAreSelected(
-                  categoryFilters,
-                  nestedFilteringOptions,
-                  section
-                );
+      <CollapsibleList>
+        {nestedFilteringOptions ? (
+          // Filter for Sections and Categories
+          <Form>
+            {nestedFilteringOptions.map(
+              (nestedCategories: ICategoryObj[], index: number) => {
+                const section: string = sectionsArr[index];
+                const allCategoriesForSectionAreSelected: boolean =
+                  validateAllCategoriesForSectionAreSelected(
+                    categoryFilters,
+                    nestedFilteringOptions,
+                    section
+                  );
 
-              return (
-                <FilterSet key={index}>
-                  <SectionFilterOption>
-                    <SectionTitle>{capitalizeFirstChar(section)}</SectionTitle>
-                    <ToggleCheckbox
-                      type="checkbox"
-                      name={section}
-                      value={section}
-                      //@ts-ignore
-                      checked={allCategoriesForSectionAreSelected || ""}
-                      onChange={(): void =>
-                        filterBySection(
-                          { section },
-                          allCategoriesForSectionAreSelected,
-                          categories,
-                          sectionFilters,
-                          categoryFilters,
-                          setCategoryFilters,
-                          setSectionFilters
-                        )
-                      }
-                    />
-                  </SectionFilterOption>
-                  <div>
-                    {nestedCategories.map(
-                      (categoryObj: ICategoryObj, index: number) => {
-                        const {
-                          category: categoryLabel,
-                        }: { category: string } = categoryObj;
-                        const categoryInFilterState: ICategoryObj | undefined =
-                          categoryFilters.find(
+                return (
+                  <FilterSet key={index}>
+                    <SectionFilterOption>
+                      <SectionTitle>
+                        {capitalizeFirstChar(section)}
+                      </SectionTitle>
+                      <ToggleCheckbox
+                        type="checkbox"
+                        name={section}
+                        value={section}
+                        //@ts-ignore
+                        checked={allCategoriesForSectionAreSelected || ""}
+                        onChange={(): void =>
+                          filterBySection(
+                            { section },
+                            allCategoriesForSectionAreSelected,
+                            categories,
+                            sectionFilters,
+                            categoryFilters,
+                            setCategoryFilters,
+                            setSectionFilters
+                          )
+                        }
+                      />
+                    </SectionFilterOption>
+                    <div>
+                      {nestedCategories.map(
+                        (categoryObj: ICategoryObj, index: number) => {
+                          const {
+                            category: categoryLabel,
+                          }: { category: string } = categoryObj;
+                          const categoryInFilterState:
+                            | ICategoryObj
+                            | undefined = categoryFilters.find(
                             (category: ICategoryObj) =>
                               category.category === categoryObj.category &&
                               category.section === categoryObj.section
                           );
 
-                        return (
-                          <FilterOption isCategoryFilter key={index}>
-                            <input
-                              type="checkbox"
-                              name={categoryLabel}
-                              value={categoryLabel}
-                              //@ts-ignore
-                              checked={categoryInFilterState || ""}
-                              onChange={(): void =>
-                                filterByCategory(
-                                  categoryObj,
-                                  sectionFilters,
-                                  categoryFilters,
-                                  setSectionFilters,
-                                  setCategoryFilters
-                                )
-                              }
-                            />
-                            <Label>{capitalizeFirstChar(categoryLabel)}</Label>
-                          </FilterOption>
-                        );
-                      }
-                    )}
-                  </div>
-                </FilterSet>
-              );
-            }
-          )}
-        </Form>
-      ) : (
-        // Filter for Categories
-        <Form>
-          {categories.map((categoryObj: ICategoryObj, index: number) => {
-            const { category }: { category: string } = categoryObj;
-            const categoryInFilterState: ICategoryObj | undefined =
-              categoryFilters.find(
-                (item: ICategoryObj) =>
-                  item.category === categoryObj.category &&
-                  item.section === categoryObj.section
-              );
+                          return (
+                            <FilterOption isCategoryFilter key={index}>
+                              <input
+                                type="checkbox"
+                                name={categoryLabel}
+                                value={categoryLabel}
+                                //@ts-ignore
+                                checked={categoryInFilterState || ""}
+                                onChange={(): void =>
+                                  filterByCategory(
+                                    categoryObj,
+                                    sectionFilters,
+                                    categoryFilters,
+                                    setSectionFilters,
+                                    setCategoryFilters
+                                  )
+                                }
+                              />
+                              <Label>
+                                {capitalizeFirstChar(categoryLabel)}
+                              </Label>
+                            </FilterOption>
+                          );
+                        }
+                      )}
+                    </div>
+                  </FilterSet>
+                );
+              }
+            )}
+          </Form>
+        ) : (
+          // Filter for Categories
+          <Form>
+            {categories.map((categoryObj: ICategoryObj, index: number) => {
+              const { category }: { category: string } = categoryObj;
+              const categoryInFilterState: ICategoryObj | undefined =
+                categoryFilters.find(
+                  (item: ICategoryObj) =>
+                    item.category === categoryObj.category &&
+                    item.section === categoryObj.section
+                );
 
-            return (
-              <FilterOption key={index} isCategoryFilter onlyCategoryFilters>
-                <Checkbox
-                  type="checkbox"
-                  name={category}
-                  value={category}
-                  //@ts-ignore
-                  checked={categoryInFilterState || ""}
-                  onChange={(): void =>
-                    filterByCategory(
-                      categoryObj,
-                      sectionFilters,
-                      categoryFilters,
-                      setSectionFilters,
-                      setCategoryFilters
-                    )
-                  }
-                />
-                <Label>{capitalizeFirstChar(category)}</Label>
-              </FilterOption>
-            );
-          })}
-        </Form>
-      )}
+              return (
+                <FilterOption key={index} isCategoryFilter onlyCategoryFilters>
+                  <Checkbox
+                    type="checkbox"
+                    name={category}
+                    value={category}
+                    //@ts-ignore
+                    checked={categoryInFilterState || ""}
+                    onChange={(): void =>
+                      filterByCategory(
+                        categoryObj,
+                        sectionFilters,
+                        categoryFilters,
+                        setSectionFilters,
+                        setCategoryFilters
+                      )
+                    }
+                  />
+                  <Label>{capitalizeFirstChar(category)}</Label>
+                </FilterOption>
+              );
+            })}
+          </Form>
+        )}
+      </CollapsibleList>
     </Box>
   );
 };
