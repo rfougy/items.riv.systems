@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { breakpoints } from "../../../../styles/theme";
 
 export const Dot = styled.div`
   background: ${(props: any) => props.theme.primary};
