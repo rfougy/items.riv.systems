@@ -5,15 +5,9 @@ export const Dot = styled.div`
   background: ${(props: any) => props.theme.primary};
   border-radius: 50%;
   display: inline-block;
-  height: 0.425rem;
-  margin: 0.085rem;
+  height: 0.175rem;
+  width: 0.175rem;
+  margin: 0.025rem;
   opacity: ${({ isDeactivated }: { isDeactivated: boolean }) =>
     isDeactivated ? 0 : 1};
-  width: 0.425rem;
-
-  @media (max-width: ${breakpoints.xs}) {
-    height: 0.25rem;
-    margin: 0.05rem;
-    width: 0.25rem;
-  }
 `;
