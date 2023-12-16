@@ -16,7 +16,7 @@ const Pagination: React.FC<{
   paginationResetDeps,
   setRenderedPostCards,
   totalPostCards,
-  initialPostCardsPerPage = 6,
+  initialPostCardsPerPage = 18,
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postCardsPerPage, setPostCardsPerPage] = useState<number>(
