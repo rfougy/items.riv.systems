@@ -24,6 +24,7 @@ import "@fontsource/roboto-mono/400.css";
 import "@fontsource/roboto-mono/500.css";
 import "@fontsource/roboto-mono/700.css";
 import ModalProvider from "../context/ModalContext";
+import Modal from "../components/modal/Modal";
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [currTheme, setTheme] = useState<ITheme>(lightTheme);
@@ -59,6 +60,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <GlobalTheme styles={globalColors} />
         <SearchProvider>
           <ModalProvider>
+            <Modal />
             {!isLinkInBioPage && <Navbar toggleTheme={toggleTheme} />}
             <PageBox isLinkInBioPage={isLinkInBioPage}>
               <AppComponentWrapper
