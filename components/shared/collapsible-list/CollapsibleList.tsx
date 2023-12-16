@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Box, Divider } from "./CollapsibleList.styled";
 import useViewportWidthEventListener from "../../../hooks/useViewportWidthListener";
 import { breakpoints } from "../../../styles/theme";
 import Toggler from "./toggler/Toggler";
 
 const CollapsibleList: React.FC<{
-  children: React.ReactNode;
+  children: ReactElement<any, any>;
 }> = ({ children }) => {
   const [expanded, setExpanded] = useState<boolean>();
 
