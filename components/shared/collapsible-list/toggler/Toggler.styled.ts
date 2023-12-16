@@ -10,7 +10,9 @@ export const Box = styled.button`
   width: 100%;
 `;
 
-export const Title = styled.h3`
+export const Title = styled.button`
+  all: unset;
+
   font-size: 0.75rem;
   font-weight: 500;
 
