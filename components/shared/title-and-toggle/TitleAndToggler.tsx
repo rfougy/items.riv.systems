@@ -25,14 +25,11 @@ const TitleAndToggler: React.FC<{
   useEffect(() => switchViewForMobile(), [isVerticalView]);
 
   return (
-    <Box>
-      <div>
-        <PageTitle>{title}</PageTitle>
-      </div>
+    <>
       {!isVerticalView && (
         <PostViewToggle setPostView={setPostView} postView={postView} />
       )}
-    </Box>
+    </>
   );
 };
 

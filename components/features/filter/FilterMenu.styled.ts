@@ -1,13 +1,9 @@
 import { breakpoints } from "./../../../styles/theme";
 import styled from "@emotion/styled";
 
-export const Box = styled.div`
-  margin-top: 1rem;
-`;
+export const Box = styled.div``;
 
-export const FilterSet = styled.div`
-  margin-top: 1rem;
-`;
+export const FilterSet = styled.div``;
 
 /**
  * @description custom checked and unchecked checkbox
