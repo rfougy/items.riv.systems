@@ -22,8 +22,12 @@ export const ViewportWrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(7.5px);
 
+  button {
+    margin: 0;
+  }
+
   @media (max-width: ${breakpoints.xs}) {
-    padding: 0 0 1rem 0;
+    padding: 0.75rem 0.75rem 1rem 0.75rem;
   
 `;
 
