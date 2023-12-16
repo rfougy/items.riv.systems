@@ -14,6 +14,8 @@ import IconButton from "../shared/icon-button/IconButton";
 
 import closeIcon from "../../public/assets/icons/close-icon.svg";
 import Button from "../shared/button/Button";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 const Modal: React.FC = () => {
   const {
@@ -23,6 +25,14 @@ const Modal: React.FC = () => {
     handleNextSlide,
     handlePrevSlide,
   } = useModalContext();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => handleModalClose());
+    return () =>
+      router.events.off("routeChangeStart", () => handleModalClose());
+  }, []);
 
   return (
     openModal && (
