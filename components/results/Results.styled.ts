@@ -14,7 +14,8 @@ export const Box = styled.div`
   }
 `;
 
-export const ViewSection = styled.section``;
+export const ViewSection = styled.section`
+`;
 
 export const EmptyBox = styled.div`
   width: 117px;
