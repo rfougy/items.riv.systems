@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useModalContext } from "../../context/ModalContext";
+import { ModalContainer, ViewportWrapper } from "./Modal.styled";
 
 const Modal: React.FC = () => {
   const {
@@ -12,24 +13,26 @@ const Modal: React.FC = () => {
 
   return (
     openModal && (
-      <div>
-        <p>Modal</p>
+      <ViewportWrapper>
         <button onClick={() => handleModalClose()}>CLOSE</button>
-        <button onClick={() => handlePrevSlide()}>PREV</button>
-        <button onClick={() => handleNextSlide()}>NEXT</button>
-        <Image
-          src={currSlide.frontmatter.coverImage}
-          alt={`Cover image for post titled '${currSlide.frontmatter.title}'`}
-          width={650}
-          height={100}
-          placeholder="blur"
-          blurDataURL={currSlide.frontmatter.placeholderImage}
-          style={{
-            maxWidth: "100%",
-            objectFit: "cover",
-          }}
-        />
-      </div>
+        <ModalContainer>
+          <button onClick={() => handlePrevSlide()}>PREV</button>
+          <Image
+            src={currSlide.frontmatter.coverImage}
+            alt={`Cover image for post titled '${currSlide.frontmatter.title}'`}
+            width={650}
+            height={100}
+            placeholder="blur"
+            blurDataURL={currSlide.frontmatter.placeholderImage}
+            style={{
+              maxWidth: "100%",
+              objectFit: "cover",
+            }}
+          />
+          <button onClick={() => handleNextSlide()}>NEXT</button>
+        </ModalContainer>
+        <div />
+      </ViewportWrapper>
     )
   );
 };
