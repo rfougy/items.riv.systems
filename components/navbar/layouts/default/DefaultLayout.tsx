@@ -6,6 +6,7 @@ import { LogoAndButtonsBox, FeaturesBox } from "./DefaultLayout.styled";
 import { NavBox } from "../../Navbar.styled";
 import DisplayDotsCoordsProvider from "../../../../context/DisplayDotsCoordsContext";
 import DisplayDotsAnime from "../../../features/display-dots-anime/DisplayDotsAnime";
+import Link from "next/link";
 
 const DefaultLayout: React.FC<{
   toggleTheme: () => void;
@@ -14,7 +15,9 @@ const DefaultLayout: React.FC<{
   <DisplayDotsCoordsProvider>
     <NavBox>
       <LogoAndButtonsBox>
-        <DisplayDotsAnime text={"RIV.THINGS"} />
+        <Link href="/">
+          <DisplayDotsAnime text={"RIV.THINGS"} />
+        </Link>
         <FeaturesBox>
           <ThemeToggleButton toggleTheme={toggleTheme} />
         </FeaturesBox>
