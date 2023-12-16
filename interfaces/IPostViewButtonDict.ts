@@ -1,10 +1,5 @@
 export interface IPostViewButtonDict {
-  default: {
-    icon: any;
-    ariaLabel: string;
-    imageAlt: string;
-  };
-  column: {
+  [viewType: string]: {
     icon: any;
     ariaLabel: string;
     imageAlt: string;

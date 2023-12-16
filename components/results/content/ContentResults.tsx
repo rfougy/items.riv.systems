@@ -13,12 +13,13 @@ import useContentFiltering from "../../../hooks/useContentFiltering";
 import useScrollToTop from "../../../hooks/useScrollToTop";
 import useViewportWidthEventListener from "../../../hooks/useViewportWidthListener";
 import TitleAndToggler from "../../shared/title-and-toggle/TitleAndToggler";
+import GridView from "../views/grid/GridView";
 
 const ContentResults: React.FC<{
   content: any;
 }> = ({ content }) => {
   const [renderedPostCards, setRenderedPostCards] = useState<any>();
-  const [postView, setPostView] = useState<postView>("default");
+  const [postView, setPostView] = useState<postView>("grid");
 
   const isVerticalView = useViewportWidthEventListener(960);
 
@@ -36,6 +37,8 @@ const ContentResults: React.FC<{
     switch (postView) {
       case "column":
         return <ColumnView content={renderedPostCards} />;
+      case "grid":
+        return <GridView content={renderedPostCards} />;
       default:
         return <DefaultView content={renderedPostCards} />;
     }
