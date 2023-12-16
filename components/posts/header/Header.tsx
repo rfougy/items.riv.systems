@@ -45,7 +45,7 @@ const Header: React.FC<{
 
   return (
     <Box>
-      <Metadata>
+      {/* <Metadata>
         <Inline>
           <Link href={`/content/${section}`}>
             {capitalizeFirstChar(section)}
@@ -62,7 +62,7 @@ const Header: React.FC<{
         <Li>
           <p>{dateAsStr}</p>
         </Li>
-      </Metadata>
+      </Metadata> */}
       <TitleAndLink>
         <Title>{title}</Title>
         {link && <LinkButton url={link} title={title} />}
