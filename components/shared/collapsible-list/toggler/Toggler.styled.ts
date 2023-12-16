@@ -21,6 +21,8 @@ export const Title = styled.h3`
 
 export const Button = styled.button`
   all: unset;
+
+  color: ${(props: any) => props.theme.primary};
   font-size: 0.75rem;
   text-decoration: underline;
 `;
