@@ -22,12 +22,8 @@ const CollapsibleList: React.FC<{
         expanded={expanded}
         setExpanded={setExpanded}
       />
-      {expanded && (
-        <>
-          <Divider />
-          {children}
-        </>
-      )}
+      <Divider />
+      {expanded && <>{children}</>}
     </Box>
   ) : (
     children

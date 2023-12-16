@@ -7,11 +7,9 @@ const Toggler: React.FC<{
   expanded: boolean | undefined;
   setExpanded: Dispatch<SetStateAction<boolean | undefined>>;
 }> = ({ title, expanded, setExpanded }) => {
-  const dynamicTitle = expanded ? title : "VIEW " + title;
-
   return (
     <Box onClick={() => setExpanded((prev) => !prev)}>
-      <Title>{dynamicTitle}</Title>
+      <Title>{title}</Title>
       <Inline>
         <ArrowIcon aria-label="Arrow Icon" top={!expanded} bottom={expanded} />
       </Inline>
