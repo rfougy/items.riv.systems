@@ -1,12 +1,13 @@
 import { ReactElement, useEffect, useState } from "react";
-import { Box, Divider } from "./CollapsibleList.styled";
+import { Box, Button, Divider } from "./CollapsibleList.styled";
 import useViewportWidthEventListener from "../../../hooks/useViewportWidthListener";
 import { breakpoints } from "../../../styles/theme";
 import Toggler from "./toggler/Toggler";
 
 const CollapsibleList: React.FC<{
   children: ReactElement<any, any>;
-}> = ({ children }) => {
+  button?: { title: string; handleOnClick: () => any };
+}> = ({ children, button }) => {
   const [expanded, setExpanded] = useState<boolean>();
 
   const isVerticalView = useViewportWidthEventListener(
@@ -19,6 +20,7 @@ const CollapsibleList: React.FC<{
     <Box>
       <Toggler
         title="FILTER OPTIONS"
+        button={button}
         expanded={expanded}
         setExpanded={setExpanded}
       />

@@ -94,7 +94,9 @@ const FilterMenu: React.FC<{
 
   return (
     <Box>
-      <CollapsibleList>
+      <CollapsibleList
+        button={{ title: "clear", handleOnClick: clearFilters }}
+      >
         {nestedFilteringOptions ? (
           // Filter for Sections and Categories
           <Form>
