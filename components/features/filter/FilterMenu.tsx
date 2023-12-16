@@ -94,9 +94,9 @@ const FilterMenu: React.FC<{
 
   return (
     <Box>
-      {nestedFilteringOptions ? (
-        // Filter for Sections and Categories
-        <CollapsibleList>
+      <CollapsibleList>
+        {nestedFilteringOptions ? (
+          // Filter for Sections and Categories
           <Form>
             {nestedFilteringOptions.map(
               (nestedCategories: ICategoryObj[], index: number) => {
@@ -178,43 +178,43 @@ const FilterMenu: React.FC<{
               }
             )}
           </Form>
-        </CollapsibleList>
-      ) : (
-        // Filter for Categories
-        <Form>
-          {categories.map((categoryObj: ICategoryObj, index: number) => {
-            const { category }: { category: string } = categoryObj;
-            const categoryInFilterState: ICategoryObj | undefined =
-              categoryFilters.find(
-                (item: ICategoryObj) =>
-                  item.category === categoryObj.category &&
-                  item.section === categoryObj.section
-              );
+        ) : (
+          // Filter for Categories
+          <Form>
+            {categories.map((categoryObj: ICategoryObj, index: number) => {
+              const { category }: { category: string } = categoryObj;
+              const categoryInFilterState: ICategoryObj | undefined =
+                categoryFilters.find(
+                  (item: ICategoryObj) =>
+                    item.category === categoryObj.category &&
+                    item.section === categoryObj.section
+                );
 
-            return (
-              <FilterOption key={index} isCategoryFilter onlyCategoryFilters>
-                <Checkbox
-                  type="checkbox"
-                  name={category}
-                  value={category}
-                  //@ts-ignore
-                  checked={categoryInFilterState || ""}
-                  onChange={(): void =>
-                    filterByCategory(
-                      categoryObj,
-                      sectionFilters,
-                      categoryFilters,
-                      setSectionFilters,
-                      setCategoryFilters
-                    )
-                  }
-                />
-                <Label>{capitalizeFirstChar(category)}</Label>
-              </FilterOption>
-            );
-          })}
-        </Form>
-      )}
+              return (
+                <FilterOption key={index} isCategoryFilter onlyCategoryFilters>
+                  <Checkbox
+                    type="checkbox"
+                    name={category}
+                    value={category}
+                    //@ts-ignore
+                    checked={categoryInFilterState || ""}
+                    onChange={(): void =>
+                      filterByCategory(
+                        categoryObj,
+                        sectionFilters,
+                        categoryFilters,
+                        setSectionFilters,
+                        setCategoryFilters
+                      )
+                    }
+                  />
+                  <Label>{capitalizeFirstChar(category)}</Label>
+                </FilterOption>
+              );
+            })}
+          </Form>
+        )}
+      </CollapsibleList>
     </Box>
   );
 };

@@ -84,7 +84,7 @@ export const Form = styled.form`
 
   @media (max-width: ${breakpoints.xs}) {
     display: grid;
-    gap: 0 3rem;
+    gap: 0 1rem;
     grid-template-columns: repeat(3, 1fr);
   }
 `;
