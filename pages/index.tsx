@@ -12,10 +12,12 @@ import {
 import { getContentByDynamicPage } from "../lib/dynamic-pages/getContentByDynamicPage";
 import IPost from "../interfaces/IPost";
 import { includePlaceholderImage } from "../lib/dynamic-pages/includePlaceholderImage";
+import { ContentResults } from "../components/results";
 
-const Home: NextPage = () => (
+const Home: NextPage<{ content: IPost[][] }> = ({ content }) => (
   <>
-    <DisplayDotsCoordsProvider>
+    <ContentResults content={content} />
+    {/* <DisplayDotsCoordsProvider>
       <Box>
         <Description isIntroText>Sorry, this site is currently...</Description>
         <Margin>
@@ -24,7 +26,7 @@ const Home: NextPage = () => (
         <Description>Come back again soon!</Description>
         <Button href="https://riv.systems/">TO RIV.SYSTEMS</Button>
       </Box>
-    </DisplayDotsCoordsProvider>
+    </DisplayDotsCoordsProvider> */}
   </>
 );
 
