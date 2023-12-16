@@ -27,9 +27,9 @@ export const ModalContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 2rem;
 
-  height: 100%;
+  height: fit-content;
+  max-height: 70vh;
   width: 100%;
   max-width: 1000px;
 
@@ -52,9 +52,8 @@ export const NavButton = styled.button`
 export const ImageBox = styled.div`
   position: relative;
 
-  height: 100%;
-  max-height: fit-content;
-  width: 90%;
+  width: 100%;
+  aspect-ratio: 3 / 4;
 `;
 
 export const Content = styled.div`
@@ -64,11 +63,13 @@ export const Content = styled.div`
   justify-content: center;
   gap: 2rem;
 
+  border: solid 0.1rem #ffffff;
+
   width: 100%;
   height: 100%;
 `;
 
 export const Text = styled.caption`
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 0.75rem;
 `;
