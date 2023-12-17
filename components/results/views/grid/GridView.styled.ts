@@ -13,4 +13,8 @@ export const GridItem = styled.div`
   a {
     width: 100%;
   }
+
+  &:hover {
+    cursor: cell;
+  }
 `;
