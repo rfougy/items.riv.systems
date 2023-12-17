@@ -97,6 +97,10 @@ export const Label = styled.h3`
   font-size: 0.75rem;
   font-weight: 400;
   margin: 0;
+
+  &:hover {
+    cursor: cell;
+  }
 `;
 
 export const SectionTitle = styled.h2`
