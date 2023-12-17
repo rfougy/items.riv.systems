@@ -6,7 +6,7 @@ export function contentResultsPageMetaTagInputs() {
   const page: string = "content";
   const title: string = "Content";
   const description: string =
-    "Browse all items in ITEMS.RIV.SYSTEMS, from clothing to film and miscellaneous objects.";
+    "Browse all items in RIV.THINGS, from clothing to film and miscellaneous objects.";
 
   return { page, description, title };
 }
@@ -15,7 +15,7 @@ export function categoryResultsPageMetaTagInputs(slug: string | string[]) {
   const category: string = slug[1];
   const page: string = category.replace(" ", "-");
   const title: string = capitalizeFirstChar(category);
-  const description: string = `View all content related to ${title} in ITEMS.RIV.SYSTEMS.`;
+  const description: string = `View all content related to ${title} in RIV.THINGS.`;
 
   return { page, description, title };
 }
@@ -24,7 +24,7 @@ export function sectionResultsPageMetaTagInputs(slug: string | string[]) {
   const section: string = slug[0];
   const page: string = section.replace(" ", "-");
   const title: string = capitalizeFirstChar(section);
-  const description: string = `View all content related to ${title} in ITEMS.RIV.SYSTEMS.`;
+  const description: string = `View all content related to ${title} in RIV.THINGS.`;
 
   return { page, description, title };
 }

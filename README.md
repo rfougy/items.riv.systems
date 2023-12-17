@@ -1,6 +1,6 @@
 ## Overview
 
-ITEMS.RIV.SYSTEMS is a Progressive Web App for showcasing the items I've ever come to acquire.
+RIV.THINGS is a Progressive Web App for showcasing the things I've ever come to acquire.
 
 ### Tech Stack
 
