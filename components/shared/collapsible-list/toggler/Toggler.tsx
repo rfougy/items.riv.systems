@@ -4,7 +4,10 @@ import ArrowIcon from "../../../icons/ArrowIcon";
 
 const Toggler: React.FC<{
   title: string;
-  button?: { title: string; handleOnClick: () => any };
+  button?: {
+    title: string;
+    handleOnClick: (e?: React.MouseEvent<HTMLElement>) => any;
+  };
   expanded: boolean | undefined;
   setExpanded: Dispatch<SetStateAction<boolean | undefined>>;
 }> = ({ title, button, expanded, setExpanded }) => {

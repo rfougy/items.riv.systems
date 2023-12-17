@@ -104,3 +104,14 @@ export const SectionTitle = styled.h2`
   font-weight: 700;
   margin-right: 0.5rem;
 `;
+
+export const ClearButton = styled.button`
+  all: unset;
+
+  margin-top: 1.125rem;
+  width: fit-content;
+
+  font-size: 0.75rem;
+  text-decoration: underline;
+  color: ${(props: any) => props.theme.primary};
+`;

@@ -6,7 +6,10 @@ import Toggler from "./toggler/Toggler";
 
 const CollapsibleList: React.FC<{
   children: ReactElement<any, any>;
-  button?: { title: string; handleOnClick: () => any };
+  button?: {
+    title: string;
+    handleOnClick: (e?: React.MouseEvent<HTMLElement>) => any;
+  };
 }> = ({ children, button }) => {
   const [expanded, setExpanded] = useState<boolean>();
 
