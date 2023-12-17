@@ -8,7 +8,7 @@ import SocialsIcon from "../socials/socials-icon/SocialsIcon";
 
 const Footer: React.FC = () => {
   const sourceCodeData: ISocials = {
-    title: "ITEMS.RIV.SYSTEMS Source Code",
+    title: "RIV.THINGS Source Code",
     url: "https://github.com/rfougy/items.riv.systems",
     icon: sourceCodeIcon,
   };

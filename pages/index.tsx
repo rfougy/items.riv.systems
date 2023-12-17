@@ -21,9 +21,9 @@ export const getStaticProps: GetStaticProps = async () => {
       content: contentWithPlaceholderImage,
       metaTagInputs: {
         page: "home",
-        title: "THINGS.RIV.SYSTEMS: Clothing, Film, Misc. Objects",
+        title: "RIV.THINGS: Clothing, Film, Misc. Objects",
         description:
-          "Welcome to THINGS.RIV.SYSTEMS, a personal website featuring personal possessions from clothing to film and more.",
+          "Welcome to RIV.THINGS, a personal website featuring personal possessions from clothing to film and more.",
         isHomePage: true,
       },
     },
