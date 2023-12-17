@@ -16,6 +16,7 @@ import {
   SectionTitle,
   SectionFilterOption,
   ToggleCheckbox,
+  ClearButton,
 } from "./FilterMenu.styled";
 import CollapsibleList from "../../shared/collapsible-list/CollapsibleList";
 
@@ -87,14 +88,15 @@ const FilterMenu: React.FC<{
     );
   }
 
-  function clearFilters(): void {
+  function clearFilters(e?: React.MouseEvent<HTMLElement>): void {
+    e && e.preventDefault();
     if (setSectionFilters) setSectionFilters([]);
     setCategoryFilters([]);
   }
 
   return (
     <Box>
-      <CollapsibleList>
+      <CollapsibleList button={{ title: "clear", handleOnClick: clearFilters }}>
         {nestedFilteringOptions ? (
           // Filter for Sections and Categories
           <Form>
@@ -177,6 +179,7 @@ const FilterMenu: React.FC<{
                 );
               }
             )}
+            <ClearButton onClick={(e) => clearFilters(e)}>clear</ClearButton>
           </Form>
         ) : (
           // Filter for Categories

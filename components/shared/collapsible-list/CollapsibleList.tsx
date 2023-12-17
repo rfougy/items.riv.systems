@@ -6,7 +6,11 @@ import Toggler from "./toggler/Toggler";
 
 const CollapsibleList: React.FC<{
   children: ReactElement<any, any>;
-}> = ({ children }) => {
+  button?: {
+    title: string;
+    handleOnClick: (e?: React.MouseEvent<HTMLElement>) => any;
+  };
+}> = ({ children, button }) => {
   const [expanded, setExpanded] = useState<boolean>();
 
   const isVerticalView = useViewportWidthEventListener(
@@ -19,13 +23,15 @@ const CollapsibleList: React.FC<{
     <Box>
       <Toggler
         title="FILTER OPTIONS"
+        button={button}
         expanded={expanded}
         setExpanded={setExpanded}
       />
+      <Divider />
       {expanded && (
         <>
-          <Divider />
           {children}
+          <Divider />
         </>
       )}
     </Box>

@@ -97,10 +97,25 @@ export const Label = styled.h3`
   font-size: 0.75rem;
   font-weight: 400;
   margin: 0;
+
+  &:hover {
+    cursor: cell;
+  }
 `;
 
 export const SectionTitle = styled.h2`
   font-size: 0.75rem;
   font-weight: 700;
   margin-right: 0.5rem;
+`;
+
+export const ClearButton = styled.button`
+  all: unset;
+
+  margin-top: 1.125rem;
+  width: fit-content;
+
+  font-size: 0.75rem;
+  text-decoration: underline;
+  color: ${(props: any) => props.theme.primary};
 `;
