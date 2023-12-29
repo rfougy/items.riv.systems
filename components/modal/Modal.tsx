@@ -65,9 +65,6 @@ const Modal: React.FC = () => {
               />
             </ImageBox>
             <Text>{currSlide.frontmatter.title}</Text>
-            <Button forModal href={currSlide.path}>
-              Learn More
-            </Button>
           </Content>
           <NavButton onClick={() => handleNextSlide()}>
             <ArrowIcon forModal right color={darkTheme.primary} />
